@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航练习</title>
+<script src="jquery-3.0.0.min.js"></script>
+<style>
+*{padding:0; margin:0;font-size:14px;}
+#wrap{ width:80%; background-color:#CCC; margin:0 auto; height:1000px; }
+.book1,.book2{ list-style:none; border-bottom:#f69702 solid 3px; width:100%; height:30px;}
+li{ float:left;}
+.book1 li a{ text-decoration:none; width:120px; height:30px; line-height:30px; background-color:#90C; color:#000; text-align:center; float:left;background:url(imgs/%E5%9C%86%E8%A7%92%E8%8F%9C%E5%8D%95%E8%83%8C%E6%99%AF.jpg)}
+.book1 li .on,.book1 li a:hover{ background-position:0 -30px; color:#fff;}
+.book2{ margin-top:100px;}
+.book2 li a{ text-decoration:none; width:120px; height:30px; line-height:30px; background-color:#90C; color:#000; text-align:center; float:left;}
+.book2 li a:hover{ color:#fff; background-color:#f69702; height:40px; line-height:40px; margin-top:-10px;}
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload=function(){
+  var aA=document.getElementsByTagName("a");
+  for(var i=0;i<aA.length;i++){
+      aA[i].onmouseover=function(){
+	      var This=this;
+		  clearInterval(this.time);
+		 This.time=setInterval(function(){
+			  while(This.style.width<=160){
+			  This.style.width=This.offsetWidth+7+"px";}
+				  This.style.width="160px";
+				  clearInterval(this.time);
+			  },30);
+	  }
+  }
+  for(var i=0;i<aA.length;i++){
+      aA[i].onmouseout=function(){
+	      var This=this;
+		  clearInterval(this.time);
+		 This.time=setInterval(function(){
+			  while(This.style.width>=120){
+			  This.style.width=This.offsetWidth-7+"px";}
+				  This.style.width="120px";
+				  clearInterval(this.time);
+			  },30);
+	  }
+  }
+  var mydate=new Date();
+  var weekday=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+  alert("今天是："+weekday[mydate.getDay()]);
+}
+</script>
+<div id="wrap">
+     <ul class="book1">
+         <li><a  class="on" href="#">见&nbsp;&nbsp;我</a></li>
+         <li><a  href="#">想我想我</a></li>
+         <li><a  href="#">找   我</a></li>
+         <li><a  href="#">追   我</a></li>
+     </ul>
+      <ul class="book2">
+         <li><a  class="on" href="#">见&nbsp;&nbsp;我</a></li>
+         <li><a  href="#">想我想我</a></li>
+         <li><a  href="#">找   我</a></li>
+         <li><a  href="#">追   我</a></li>
+     </ul>
+</div>
+
+</body>
+</html>
